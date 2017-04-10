@@ -5,7 +5,7 @@ import os
 
 log = logging.getLogger(__name__)
 config = {
-    'homedir': '/etc/salt/gpgkeys',
+    'gnupghome': '/etc/salt/gpgkeys',
 }
 
 def ext_pillar(minion_id, pillar, *args, **kwargs):
@@ -18,7 +18,7 @@ def ext_pillar(minion_id, pillar, *args, **kwargs):
 def _decrypt_value(encrypted_string):
     try:
         import gnupg
-        if not os.path.isdir(config['homedir']):
+        if not os.path.isdir(config['gnupghome']):
             raise
         gpg = gnupg.GPG(**config)
         gpg.encoding = 'utf-8'
