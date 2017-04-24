@@ -38,7 +38,7 @@ If you want to change that (or any other parameter), you can pass in options to 
 ```
 ext_pillar:
   - decrypt:
-    - homedir: /path/to/gnupg/homedir
+    - gnupghome: /path/to/gnupg/homedir
     - verbose: True
 ```
 
